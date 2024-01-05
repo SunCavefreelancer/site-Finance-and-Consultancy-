@@ -1,0 +1,1404 @@
+/*Обнуление*/
+*,*:before,:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+    letter-spacing: none;
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+/* ------------------------------------------------------------------- */
+html,
+body {
+    height: 100%; /* прижимаем футер КНИЗУ */
+    font-family: 'Lato', sans-serif; /* не сработал шрифт */
+    line-height: 1;
+    font-size: 16px;
+    color: #000;
+}
+/* ------------------------------------------------------------------- */
+
+/* -------------------------оболочка для демонстрации----------------- */
+.wrapper {
+    min-height: 100%;/* прижимаем футер КНИЗУ */
+    display: flex; /* прижимаем футер КНИЗУ */
+    flex-direction: column; /* прижимаем футер КНИЗУ */
+    overflow: hidden;
+}
+/* -------------------------ТЕНИЧЕСКИЕ КЛАССЫ----------------- */
+._conteiner { /* общий ограничиваюий контейнер */
+    max-width: 1046px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+._ibg { /* для всех используемых ibg */
+    position: relative;
+}
+._ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}/* -------------------------ТЕНИЧЕСКИЕ КЛАССЫ----------------- */
+
+/* -------------------------основные стили------------------------ */
+
+.header {
+    position: fixed; /* Наша ШАПКА - HEADER будет ФИКСИРОВАННОЙ, т.е.при скроле она всеглда будет сверху кнотента */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;/* делаем большой z-index ЧТОБЫ поверх контента была шапка*/
+}
+
+/* --------------------создаем ПЛАШКУ РОЗОВОГО ЦВЕТА----------------------*/
+.header:before {/* создаем ПЛАШКУ */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* т.е. на ВЕСЬ РАЗМЕР НАШЕЙ ШАПОЧКИ */
+    background-color: rgb(3, 100, 40);
+    z-index: 2;
+}
+.conteiner { /* теперь ОГРАНИЧИМ по ШИРИНЕ КОНТЕНТ */
+    max-width: 1046px; /* получилось */
+    margin: 0 auto; /* получилось */
+    padding: 0px 20px; /* получилось */
+}
+.header__body { /* теперь нам нужно ВЫТАЩИТЬ ВЕСЬ КОНТЕНТ НАВЕРХ из под ШАПКИ */
+    position: relative;
+    /*z-index: 2;*/
+    height: 80px; /* ВЫСОТА ШАПКИ header */
+
+    /* теперь продолжаем работать с ШАПКОЙ, после того как в conteiner - ОГРАНИЧИЛИ по ШИРИНЕ КОНТЕНТ */
+    display: flex; /* ЗаДАЛИ flex что бы РАЗБРОСАТЬ по СТОРОНАМ лого и пункты меню */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo { /* а размер ДЛЯ НАШЕЙ КАРТИНКИ мы укажем 60рх */
+    flex: 0 0 80px; /* КАРТИНКА сама по размеру 200рх */
+
+     border-radius:60%; /* делаем картинку КРУГЛОЙ */
+     /*overflow: hidden;*/ 
+   /* если у КАРТИНКИ есть ПОДРЕЗАНИЕ - пишем в header__logo img - DISPLAY: BLOCK */
+     position: relative;
+     z-index: 3;
+}
+.header__logo img { /* если вдруг ДРУГАЯ КАРТИНКА будет БОЛЬШЕ, то чтобы потом подстроилась под НАШ РАЗМЕР */
+    max-width: 100%;
+    /*display: block;*/
+    /* DISPLAY: BLOC */
+}
+
+
+
+
+/* --------------------------------------------------ПЕРЕХОДИМ К верстке самих ПУНКТОВ МЕНЮ---------------------------------- */
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.menu_header_link { /* все ссылки отступы */
+    /*padding: 0px 0px 0px 10px;*/
+    list-style: none; /* убираем ТОЧКИ перед ПУНКАМИ МЕНЮ */ /* получилось */
+    margin: 0px 0px 0px 20px; /* получилось */
+    text-transform: uppercase;
+    font-family: 'Noto Serif Balinese', serif;
+    font-size: 20px; /* если сделать шрифт меньше, СКРОЛА не будет */
+
+    /* ---------------------------------------------------ДЕЛАЕМ интересное подчеркивание пунктов меню-------------------------------------- */
+    background: linear-gradient(orange 0 0) bottom/var(--t,0) 2px no-repeat;
+    transition: 0.5s; /* плавный переход-анимация */
+}
+    /* что бы заработало добавляем HOVER --t: */
+    .menu_header_link:hover {
+    --t: 100%;
+}
+
+.menu_header_link1 {  /* задаем всем ссылкам размер, шрифт, цвет */
+    font-size: 18px;
+    font-weight: 700;
+    color: #fdfbfb;
+    font-family: 'Noto Sans Mono', monospace;
+
+}
+.menu_header_link1:hover {
+    color: #1909f5;
+    transition: 0.7s;
+} 
+.link_vip { /* -------------------выделяем отдельно ссылку в меню -----------------  */
+    color: #f724b7;
+}
+.link_vip:hover {
+    color: #eaedf6;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+
+ /* --------------------------------------------------переходим к верстке БУРГЕР-МЕНЮ--------------------------------- */
+.header__burger {
+    display: none;
+}
+.header__menu {
+}
+
+
+
+/* --------------------------------------------------ПЕРЕХОДИМ К верстке Медиа-Запрос для 767px-экранов---------------------------------- */
+
+/* будет выскакивать БУРГЕР-МЕНЮ при уменьшеении ЭКРАНОВ  */
+
+@media (max-width:767px) {
+    .header__body { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        height: 50px;
+    }
+    .header__logo { /* уменьшаем размер ЛОГО-фото */
+        flex: 0 0 40px;
+    }
+    /* это будет бургер меню */
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    } 
+
+    /* --------------------------здесь мы РИСУЕМ ПОЛОСОЧКИ БУРГЕР */ /* общие настройки-------------------------- */
+    .header__burger:before,
+    .header__burger:after {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s; /* теперь переходят плавно полосочки */
+    }
+
+    /* --------------------------здесь мы РИСУЕМ Верхнюю ПОЛОСУ БУРГЕР-------------------------- */
+    .header__burger:before {
+        top: 0;  
+    }
+     /* --------------------------здесь мы РИСУЕМ Нижнюю ПОЛОСУ БУРГЕР-------------------------- */
+    .header__burger:after {
+        bottom: 0;  
+    }
+     /* --------------------------здесь мы РИСУЕМ СРЕДНЮЮ ПОЛОСУ БУРГЕР--------------------------- */
+    .header__burger span {
+        position: absolute;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s; /* теперь переходят плавно полосочки */
+    }
+
+    .header__burger.active:before {
+        transform: rotate(45deg); /* делаем палочку теперь на 45`,т.е.она стала по диагонале */
+        top: 9px; /* теперь подняли ее на центр */
+    }
+    .header__burger.active:after {
+        transform: rotate(-45deg); /* делаем палочку теперь на 45`,т.е.она стала по диагонале */
+        bottom: 9px; /* теперь подняли ее на центр */
+    }
+    .header__burger.active span {
+        transform: scale(0); /* убираем среднюю полосочку */
+    }
+    /* --------------------------здесь мы Закончили РИСОВАТЬ - БУРГЕ-------------------------- */
+
+
+
+    /* -----------------теперь стилизуем МЕНЮ----------------- */
+    .header__menu {
+        /* Делаем ПЛАСТИНУ которая будет ВЫЕЗЖАТЬ для пунктов меню */
+        position: fixed;
+        top: -100%; /* меню будет сьезжать сверху */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* будет скрол при повороте экрана телефона */
+        transition: all 0.3s ease 0s; /* теперь переходит плавно */    
+        background-color: #8318b5; 
+        padding: 70px 10px 20px 10px; /* пункты меню вытащили из розовой плашки в РЯД */
+    }
+    .header__menu.active {
+        top: 0;
+    }
+
+    .header__list {
+        display: block; /* меню пункты встали в КОЛОНКУ */
+        text-align: center;
+    }
+    .header__list li { /* теперь сделали отступы между строчками меню в колонке */
+        margin: 0px 0px 20px 0px;
+    }
+
+    .header__list li {
+    font-size: 27px; /* сделали шрифт больше (с 20рх на 27рх), для СКРОЛА телефонов в горизонтальном положении!*/
+    }
+
+}/* -----------------------------------------------закончили МЕДИА-ЗАПРОСЫ-------------------------------------------- */
+
+
+
+
+
+/*------------------- супер получилось!!! ------------------------------------поиск по сайту------------------------------------------------------------------*/
+
+
+
+/* -------------------------------------------------------------------ПЕРЕХОДИМ К верстке КОНТЕНТА сайта-------------------------------------------------- */
+
+main {/* main */
+   
+}
+.page { 
+    flex: 1 1 auto;/* прижимаем футер КНИЗУ */
+}
+.page__main-block { /* этот блок - если нужно будет применять внешние стили */
+} 
+/* -------------------------------main-block-------------------------------------------------- */
+
+.main-block {
+    position: relative; /* относительно .main-block! */ /* это ФОТО-фон */
+}
+.main-block__image { /* относительно .main-block! */ /* это ФОТО-фон */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.main-block__conteiner {
+} 
+
+.main-block__body {
+    padding: 184px 0px 191px 0px; /* отступы всей сексии сверху и снизу */
+
+    position: relative;  /* вытягиваем КОНТЕНТ из-под фона */
+    z-index: 2;  /* вытягиваем КОНТЕНТ из-под фона */
+
+    max-width: 400px; /* ограничевающий контейнер для ЗАГЛАВИЯ */
+
+    color: #eaedf6;
+}
+@media (max-width: 992px) {
+    .main-block__body {
+        padding: 120px 0px 191px 0px; /* отступы всей сексии сверху и снизу */
+
+    }    
+}
+.main-block__title { /* ЗАГЛАВИЕ */
+    font-size: 58px;
+    line-height: calc(80 / 58 * 100%); /* или пишем 137% отступы между строк */
+    letter-spacing: 0.2px;
+    font-weight: 800;
+}
+@media (max-width: 479px) { /* адаптив ЗАГЛАВИЕ */
+    .main-block__title {
+        font-size: 42px;
+
+    }    
+}
+.main-block__text { /* ТЕКСТ */
+    color: #fff;
+    font-size: 20px;
+    line-height: 150%;
+}
+/* ------------- делаем одинаковые отступы для всех элементов первого уровня-- внутри КОРОБОЧКИ main-block__body----------- */
+.main-block__body > *:not(:last-child){ /* у последнего элемента НЕ БУДЕТ ОТСТУПА ВНИЗ */
+    margin: 0px 0px 35px 0px;
+}
+/* ------------- делаем одинаковые отступы для всех элементов первого уровня------------- */
+ 
+.main-block__buttons { /* КНОПКИ */
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px 0; /* ----------------отступы между кнопками--------------------- */
+}
+.main-block__button {  /*общие настрокйи для кнопок */
+    border-radius: 37px;
+    min-height: 48px;
+    padding: 0px 0px 0px 0px; /* padding - безопастности */
+
+    letter-spacing: 0.2px;
+
+    font-weight: 700;
+    padding: 5px 36px;
+    line-height: 150%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 36px;
+    margin: 10px 0; /* ----------------отступы между кнопками--------------------- */
+    /*flex: 0 1 50%;*/
+}
+@media (max-width: 479px) {
+    .main-block__button {
+        flex: 1 1 auto; /* делаем одинаковые КНОПКИ при адаптиве  */
+    }    
+}
+.main-block__button:not(:last-child) { /* у последнего элемента НЕ БУДЕТ ОТСТУПА ВПРАВО */
+    margin-right: 10px; /* отступ ВПРАВО между кнопками  */
+}
+.main-block__button_border { /*прозрачная кнопка */
+    border: 1px solid rgb(226, 5, 141);
+    color: #fff;
+
+}
+.main-block__button_ORANGE { /*оранжевая кнопка */
+    background: rgb(226, 5, 141);
+    color: #fff;
+}
+
+.main-block__button_ORANGE:hover {
+    background: transparent;
+    border: 1px solid rgb(226, 5, 141);
+    transition: 1s;
+    cursor: pointer;
+}
+.main-block__button_border:hover {
+    background: rgb(246, 210, 232);
+    color: #0206de;
+    transition: 1s;
+    cursor: pointer;
+}
+/* -----------------------------адаптив фона-------------------------------------- */
+@media (max-width: 1300px) {
+    .main-block__image img {
+        object-fit: right; /* делаем фон СПРАВОЙ СТОРОНЫ */
+    }    
+}
+@media (max-width: 992px) {
+    .main-block__image {
+        opacity: 0.5; /* делаем фон ПРОЗРАЧНЫМ */
+    }    
+}
+/* -----------------------------адаптив фона-------------------------------------- */
+
+
+
+
+/* -------------------------------servises - ОБЩИЙ БЛОК--------------------------------- */
+.page__servises /*секция */ {
+    margin: -111px 0px 0px 0px; /* ПОДНИМАЕМ ВЕСЬ БЛОК ()именно margin т.к. все остальные блоки тоже поднимутся! */
+    
+    position: relative; /* ---теперь ЭТИ КАРТОЧКИ НА ВЕРХУ 1-го БЛОКА!--- */
+    z-index: 2;        /* ---теперь ЭТИ КАРТОЧКИ НА ВЕРХУ 1-го БЛОКА!--- */
+}
+
+.servises /* servises --> <!-- ОБЩИЙ БЛОК*/ { } 
+
+.servises__conteiner /* conteiner__servises-Ограничивающий контейнер------ */ { }
+
+._conteiner /*_conteiner-ОБЩИЙ гранич.контейнер */{ }
+
+.servises__body /* ФЛЕКС структура */ { /* сначала пишем ЗДЕСЬ, а потом при адаптиве переносим запись в min-width:670px и будет 1 колонка, а не 3 */
+    /*display: flex;
+    margin: 0px -15px; /* --------отступы между КОЛОНКАМИ!!!-------- */
+    /*flex-wrap: wrap;*/
+} 
+@media (min-width:670px) { /* адаптив column на 670px */
+    .servises__body {
+        display: flex;
+        margin: 0px -15px; /* --------отступы между КОЛОНКАМИ!!!-------- */
+        flex-wrap: wrap;
+    }
+}
+.servises__column /* column */ { 
+    padding: 0px 15px; /* --------отступы между КОЛОНКАМИ!!!-------- */
+    flex: 0 1 33.333%; /* --------отступы между КОЛОНКАМИ!!!-------- */
+} 
+@media (max-width:992px) { /* адаптив column на 992px */
+    .servises__column {
+        flex: 0 1 50%; /* Меняем ШИРИНУ КОЛОНКИ */
+        margin: 0px 0px 30px 0px; /* отступы вниз от карточек */
+    }
+}
+
+.servises__item /* карточка*/{
+    box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07); /* тень карточки */
+    background-color: #fff;
+    padding: 35px;
+
+    height: 100%; /* ------теперь все карточки ОДИНАКОВОЙ ВЫСОТЫ------- */
+} 
+@media (max-width:479px) { /* адаптив column на 479px */
+    .servises__item {
+        padding: 25px;
+    }
+}
+.item-servise { }
+
+/* .item-servise_green */
+.item-servise_green {
+    background-color: #02500a;
+    color: #fff;
+}
+.item-servise_green .item-servise__title {
+    color: #fff;
+}
+.item-servise_green .item-servise__text {
+    color: #fff;
+}
+/* .item-servise_green */
+
+.item-servise > *:not(:last-child) {
+    margin: 0px 0px 10px 0px; /* отступы ВНИЗ всем элементам кроме последнего */
+}
+.item-servise__icon /*картинка*/ {
+}
+.item-servise__icon img {
+
+}
+h3 /* текст - Enviromental Consulting */ { }
+.item-servise__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    letter-spacing: 0.1px;
+}
+.item-servise__text {
+    color: #5d5a5a;
+    line-height: 142%;
+    font-size: 20px;
+
+}
+
+/* -------------------------------servises - ОБЩИЙ БЛОК--------------------------------- */
+
+
+
+/* -------------------------------servises - БЛОК advantages ДОСТИЖЕНИЯ--------------------------------- */
+
+.page__advantages /* СЕКЦИЯ */ { } 
+
+.advantages {
+    padding: 80px 0px;
+}
+@media (max-width:992px) { /* адаптив column на 992px */
+    .advantages  {
+        padding: 50px 0px;
+    }
+}
+@media (max-width:767px) { /* адаптив column на 767px */
+    .advantages  {
+        padding: 30px 0px;
+    }
+}
+.advantages__conteiner /* conteiner__servises-Ограничивающий контейнер------ */{} 
+
+._conteiner /* _conteiner-ОБЩИЙ гранич.контейнер  */{} 
+
+.advantages__header {
+    margin: 0px 0px 50px 0px; /* задаем отступы именно для ЭЛЕМЕНТА */
+} 
+@media (max-width:767px) { /* адаптив column на 992px */
+    .advantages__header  {
+        margin: 0px 0px 25px 0px; /* задаем отступы именно для ЭЛЕМЕНТА */
+    }
+}
+
+
+/* ------------------------------------Это у нас будет ОБЩИЙ БЛОК который просто будем копировать для других секций--------------------------- */
+.header_block {
+    text-align: center;
+    letter-spacing: 0.2px;
+} 
+.header_block__title /*Desing Better Experiens*/ {
+    font-size: 40px;
+    line-height: 142%;
+    font-weight: 700;
+}
+@media (max-width:992px) { /* адаптив column на 992px */
+    .header_block__title  {
+        font-size: 35px;
+    }
+}
+@media (max-width:767px) { /* адаптив column на 992px */
+    .header_block__title  {
+        font-size: 30px;
+    }
+}
+.header_block__title:not(:last-child) {
+    margin: 0px 0px 10px 0px;
+}
+.header_block__subtitle /*Lorem ipsum*/ {
+    color: #454343;
+    line-height: 142%;
+    font-size: 18px;
+} 
+
+/* -------------------------------------Это у нас будет ОБЩИЙ БЛОК который просто будем копировать для других секций----------------------------------- */
+
+
+
+.advantages__body /* ОБОЛОЧКА КОЛОНОК */ {
+    display: flex;
+    margin: 0px -15px; /* ---------отступы между КОЛОНКАМИ------------ */    
+
+    flex-wrap: wrap;
+} 
+
+.advantages__column /* КОЛОНКА */ {
+    padding: 0px 15px; /* ---------отступы между КОЛОНКАМИ------------ */
+    flex: 0 1 25%;    /* ---------отступы между КОЛОНКАМИ------------ */
+} 
+@media (max-width:1020px) { /* адаптив column на 1020px */
+    .advantages__column  {
+        flex: 0 1 50%; /* Меняем ШИРИНУ КОЛОНКИ */
+        margin: 0px 0px 30px 0px; /* отступы вниз от карточек */
+    }
+}
+@media (max-width:560px) { /* адаптив column на 560px */
+    .advantages__column  {
+        flex: 0 1 100%; /* Меняем ШИРИНУ КОЛОНКИ */
+    }
+}
+.advantages__item /* КАРТОЧКА */ {
+    background-color: #faf8f8;
+    padding: 30px;
+    text-align: center;
+} 
+.advantages__item > *:not(:last-child) { 
+    margin: 0px 0px 10px 0px;
+}
+.advantages__icon /* ФОТО */ {
+    height: 48px; /* делаем ОДИНАКОВУЮ ВЫСОТУ у КОЛОНОК */
+
+    display: flex; /* выравниваем иконки по центру */
+    align-items: flex-end; /* выравниваем иконки по центру */
+    justify-content: center; /* выравниваем иконки по центру */
+} 
+
+.advantages__value /* текст 972*/ {
+    font-size: 40px;
+    line-height: 142%;
+    font-weight: 700;
+}
+.advantages__text /* текст Consumer Products */ {
+    color: #928e8e;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.1px;
+} 
+
+/* -------------------------------servises - БЛОК advantages ДОСТИЖЕНИЯ--------------------------------- */
+
+
+
+/* ------------------------------page__practice - БЛОК ПРАКТИКА--------------------------------- */
+
+.page__practice /* section ЭЛЕМЕНТ*/{
+    margin: 0px 0px 50px 0px; /* делаем ОТСТУП ВНИЗ к следующему блоку-секции */
+}
+
+.practice  /* section БЛОК */ {
+    padding: 125px 0px 0px 0px;
+}
+@media (max-width:993px) { /* адаптив column на 1020px */
+    .practice__column  {
+        padding: 0px 0px 80px 0px;
+    }
+}
+@media (max-width:767px) { /* адаптив column на 1020px */
+    .practice__column  {
+        padding: 0px 0px 40px 0px;
+    }
+}
+
+.practice__conteiner /* Ограничивающий контейне */ {}
+
+._conteinerр /*ОБЩИЙ гранич.контейнер */ {}
+
+.practice__header {
+    margin: 0px 0px 45px 0px;
+}
+@media (max-width:767px) { /* адаптив column на 767px */
+    .practice__header  {
+        margin: 0px 0px 25px 0px;
+    }
+}
+
+
+/* HEADER просто скопировали в html */
+        
+.practice__body {
+    margin: 0px -15px; /* -------отступы между КОЛОНКАМИ------- */
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.practice__column {
+    padding: 0px 15px; /* -------отступы между КОЛОНКАМИ------- */
+    flex: 0 1 25%;  /* ----------будет 4 КОЛОНКИ в ряду------- */
+}
+@media (max-width:1040px) { /* адаптив column на 1020px */
+    .practice__column  {
+        flex: 0 1 50%; /* Меняем ШИРИНУ КОЛОНКИ */
+        margin: 0px 0px 30px 0px; /* отступы вниз от карточек */
+    }
+}
+@media (max-width:630px) { /* адаптив column на 1020px */
+    .practice__column  {
+        flex: 0 1 100%; /* Меняем ШИРИНУ КОЛОНКИ */
+        margin: 0px 0px 30px 0px; /* отступы вниз от карточек */
+    }
+}
+
+.practice__item /*оболочка для БЛОКА-ЭЛЕМЕНТА*/  {} 
+
+.item-practice /*оболочка для БЛОКА */ {
+    background-color: #f1f1f1;
+
+    display: flex;           /* --------ПРИЖИМАЕМ картинку КНИЗУ карточки------- */
+    flex-direction: column; /* --------ПРИЖИМАЕМ картинку КНИЗУ карточки------- */
+    height: 100%; /* и задаем карточке высоту 100% */  /* --------ПРИЖИМАЕМ картинку КНИЗУ карточки------- */
+}
+
+.item-practice__content /*оболочка для текста*/ {
+    padding: 30px;
+    flex: 1 1 auto;       /* --------ПРИЖИМАЕМ картинку КНИЗУ карточки------- */
+}
+
+.item-practice__link /* заглавие делаем ССЫЛКОЙ */ {
+    color: inherit;
+    display: inline-block;
+}
+.item-practice__link:hover {
+    text-decoration: underline;
+}
+.item-practice__link:not(:last-child) {
+    margin: 0px 0px 15px 0px; /* что бы сработал ОТСТУП margin пишем в .item-practice__link { display: inline-block} */
+}
+.item-practice__title /*">A single a sourse of truth*/ {
+    font-size: 16px;
+    line-height: calc(24 / 16 * 100%); /* или 150% */
+    letter-spacing: 0.1px;
+    font-weight: 800;
+}
+
+.item-practice__text /* Lorem ipsum, dolor*/ {
+    color: #a1a0a0;
+    line-height: 142%;
+}
+
+.item-practice__image { /* без этой записи картинку видно НЕ БУДЕТ, т.к.работает ._ibg*/
+    display: block;
+    padding: 0px 0px 67% 0px; /* по макету-  137 высота:200 ширину*100=67% отступ вниз*/
+}
+
+/* ------------------------------page__practice - БЛОК ПРАКТИКА--------------------------------- */
+
+
+
+
+/* ------------------------------page__Subscribe - БЛОК C ПОЛОСКОЙ---------------------------------*/
+
+.page__subscribe  /* section ЭЛЕМЕНТ*/ {} 
+
+.subscribe /* section */ { 
+    position: relative; /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+
+    padding: 0 0 20px 0; /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ подняли розовую полоску вверх */
+}
+.subscribe::before /* section */ { 
+    content: "";
+    background: #8318b5;
+    position: absolute; /*---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+    bottom: 0;         /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+    left: 0;           /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+    width: 100%;       /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+    height: 77px;      /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+}
+
+
+.subscribe__conteiner /* Ограничивающий контейнер */ {} 
+
+._conteiner /*ОБЩИЙ гранич.контейнер */ {}
+
+.subscribe__body /*ОБОЛОЧКА */ {
+    margin: 0px 30px;
+    /*display: flex;                  /* ----отсюда убрали на АДАПТИВ для мобайл-ферст 810px */
+    /*justify-content: space-between; /* ----oтсюда убрали на АДАПТИВ для мобайл-ферст 810px  */
+    padding: 30px 50px;
+    align-items: center;
+    background-color: #fb049d;
+    border-radius: 2px;
+
+    position: relative; /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+    z-index: 2;         /* ---это для полоски ВНИЗУ БЛОКА-СЕКЦИИ */
+}
+@media (max-width:1040px) { /* адаптив column на 1040px */
+    .subscribe__body  {
+        margin: 0px 0px; /* убрали отступы ПО БОКАМ  */
+    }
+}
+@media (min-width:810px) { /* -----адаптив column используем мобайл-ферст на 810px */
+    .subscribe__body  {
+        display: flex;
+        justify-content: space-between; /* разбросали по сторонам ТЕКСТ и ФОРМУ */
+    }
+}
+
+
+.subscribe__title /*Subscribe for Latest Newslarter<*/ {
+    max-width: 266px; /* для текста сделали max-width */
+    color: #fbf9f9;
+    font-weight: 700;
+    font-size: 133%;
+    line-height: 32px;
+    letter-spacing: 0.1px;
+}
+@media (max-width:810px) { /* адаптив column на 810px */
+    .subscribe__title  {
+        margin: 0 0 20px 0; /* делаем отступы между ТЕКСТОМ и ФОРМОЙ  */
+    }
+    .subscribe__body  {
+        margin: 0px -20px; /* ---делаем КРАСИВОЕ УМНЬШЕНИЕ БЛОКА body---*/
+        padding: 20px 20px; /* ---делаем КРАСИВОЕ УМНЬШЕНИЕ БЛОКА body---*/
+    }
+}
+
+.subscribe__form/* ФОРМА */ {
+    display: flex;
+    flex: 0 1 50%;
+    align-items: center;
+}
+
+.subscribe__input /*ПОЛЕ ДЛЯ ВВОДА */ {
+    width: 100%; /* теперь форма длЯ ввода будет уменьшаяться и на адаптиве! */
+    flex: 1 1 auto;
+
+    min-height: 58px; /* минимальная высота поле для ввода */
+    padding: 0px 20px;
+
+    background: #fbf1f1;
+    box-sizing: border-box;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #eaedf6;
+    border-right: 0; /* убрали 2-ую полоску между КНОПКОЙ и email */
+    color: #7b7878;
+}
+
+.subscribe__input:focus {
+    color: #000;
+}
+.subscribe__button /*КНОПКА */{
+    background: #f68d0c;
+    border: 1px solid #eaedf6;
+    border-radius: 0px 5px 5px 0px;
+
+    display: flex;
+    min-height: 58px; /* минимальная высота кнопки */
+    padding: 0 20px;
+    
+    justify-content: center; /* выравниваем НАДПИСЬ КНОПКИ по центру */
+    align-items: center;     /* выравниваем НАДПИСЬ КНОПКИ по центру */
+    text-align: center;
+}
+.subscribe__button:hover /*КНОПКА */{
+    background: #cb7711;
+    border: 1px solid #eaedf6;
+    color: #f3f0f0;
+    cursor: pointer;
+    transition: 1s;
+}
+/* ------------------------------page__Subscribe - БЛОК C ПОЛОСКОЙ---------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------section--------page__Whoweare - БЛОК C ВИДЕО--------------------------------- */  
+
+.page__whoweare /* section ЭЛЕМЕНТ БЛОКА*/ {}
+
+.whoweare /* БЛОК */{
+    padding: 80px 0px 130px 0px;
+}
+@media (max-width:950px) {
+    .whoweare {
+        padding: 50px 0px 50px 0px;
+    }  
+}
+@media (max-width:767px) {
+    .whoweare {
+        padding: 20px 0px 50px 0px;
+    }  
+}
+
+.whoweare__conteiner /*  Ограничивающий контейнер */ {}
+
+._conteiner /* ОБЩИЙ гранич.контейнер*/ {}
+
+.whoweare__header /*HEADER_BLOCK */ { 
+    margin: 0px 0px 100px 0px; /* от header до БЛОКА с видео вниз */
+}
+@media (max-width:950px) {
+    .whoweare__header  {
+        margin: 0px 0px 30px 0px;
+    }  
+}
+
+/* HEADER просто скопировали в html */        
+
+.whoweare__body /*оболочка для БЛОКА */ {
+    display: flex;
+    align-items: flex-start; /* из-за этого видео пропало */
+}
+@media (max-width:950px) {
+    .whoweare__body  {
+        flex-direction: column-reverse; /* поменяли местами текст и видео (видео пропало) */
+        align-items: stretch; /* видео вернулось */
+    }  
+}
+
+.whoweare__video /*вставили ВИДЕО */ {
+    flex: 0 1 57%; /* 600 (ширина ролика) : 1046px (ОБЩИЙ гранич.контейнер)= 57% (будет ширина видео на странице)*/
+
+    position: relative; /* -----позиционируем видео------ */
+    padding: 0px 0px 42.25% 0px; /* здесь видео может исчезнуть, т.к. если есть текст он будет задавать ВЫСОТУ блока */ /* 442px (высота видео из макета) : 1046px (ОБЩИЙ гранич.контейнер) = 42% */
+
+}
+@media (max-width:950px) {
+    .whoweare__video:not(:last-child) {
+        margin: 50px 0px 0px 0px; /* отступы от текстов до видео */
+        padding: 0px 0px 56.25% 0px;
+    }  
+}
+
+.whoweare__video iframe { /* iframe - это тег видео */
+
+    position: absolute;/* -----позиционируем видео------ */
+    width: 100%;       /* -----позиционируем видео------ */
+    height: 100%;      /* -----позиционируем видео------ */
+    top: 0;            /* -----позиционируем видео------ */
+    left: 0;           /* -----позиционируем видео------ */
+    object-fit: cover; /* -----позиционируем видео------ */
+}
+.whoweare__content /*content*/ {
+    flex: 1 1 auto; /* ширина 2-й колонки будет - авто */ /* А если закуазчик решит убрать видео, то ТЕКСТ останется на всю ШИРИНУ контейнера и все будет красиво на странице! Верстка сохранит свою структуру */
+    padding: 20px 0px 0px 121px;
+}
+@media (max-width:1080px) {
+    .whoweare__content {
+        padding: 0px 0px 0px 50px;  /* уменьшили растояние между ВИДЕО и БлоКОм с ТЕкстом */
+    }  
+}
+@media (max-width:992px) {
+    .whoweare__content {
+        padding: 0px 0px 0px 30px; /* уменьшили растояние между ВИДЕО и БлоКОм с ТЕкстом */
+    }  
+}
+
+
+.whoweare__title {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 142%; /* 57:40*100%=142% */
+    letter-spacing: 0.2px;
+}
+@media (max-width:950px) {
+    .whoweare__title  {
+        font-size: 24px;
+    }  
+}
+
+.whoweare__title:not(:last-child) {
+    margin: 0px 0px 30px 0px;
+} 
+
+.whoweare__text /*Most calendars a*/ {
+    color: #656363;
+    line-height: 142%; /* 57:40*100%=142% */
+}          
+.whoweare__items/*- КОРОБОЧКА (cards) */ {
+    padding: 50px 0px 0px 0px;
+}
+                    
+.whoweare__item {} 
+
+.whoweare__item:not(:last-child) {
+    margin: 0px 0px 30px 0px;
+} 
+.item-whoweare /*-- оболочка для БЛОКА (card 1)*/ {
+    display: flex;
+}
+
+.item-whoweare__icon /* icon */ {
+    flex: 0 0 32px; /* задаем размер icon */
+}
+
+.item-whoweare__body /*body*/ {
+    flex: 1 1 auto;
+    padding: 0px 0px 0px 20px;
+}
+
+.item-whoweare__title /*The quick fox jamps*/ {
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 150%;
+}
+.item-whoweare__title:not(:last-child) {
+    margin: 0px 0px 5px 0px;
+}
+.item-whoweare__text /* Things on a very */ {
+    letter-spacing: 0.2px;
+    line-height: 142%;
+
+    white-space: nowrap;                                       /* ------------------делаем троеточие для длинного текста---------------------- */
+    text-overflow: ellipsis;                                   /* ------------------делаем троеточие для длинного текста---------------------- */
+    width: 225px; /* фиксируем значение ширины для текста */  /* ------------------делаем троеточие для длинного текста---------------------- */
+    overflow: hidden;                                         /* ------------------делаем троеточие для длинного текста---------------------- */
+}
+
+
+
+/*- --------------------------section----page__Subscribe - БЛОК C ВИДЕО--------------------------------- */ 
+
+
+
+
+
+
+/*  ------------------------------page__Clients - БЛОК КЛИЕНТЫ-----------------------------*/
+
+.page__Clients /* section ЭЛЕМЕНТ БЛОКА*/ {}
+
+.Clients /*БЛОК*/ {
+    padding: 50px 0px;
+}
+@media (max-width:767px) {
+    .whoweare__title  {
+        padding: 30px 0px;
+    }  
+}
+
+.Clients__conteiner /*conteiner__servises-Ограничивающий контейнер*/ {}
+
+._conteiner /*ОБЩИЙ гранич.контейнер*/ {}
+
+.Clients__items /*ОБОЛОЧКА img  */ {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.Clients_item /* item 1,2,3,4,5,6*/ {
+    flex: 0 1 16.6667%; /* -----сделали 6 равных колонок для фото----- */
+    text-align: center;
+    padding: 8px 15px;
+    min-width: 140px; /* для фото - теперь неважно какого размера будет картинка -все будет ОК! */ 
+}
+.Clients_item:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 1s;
+}
+.Clients_item img {
+    max-width: 100%; /* для фото - теперь неважно какого размера будет картинка -все будет ОК! */
+}             
+
+/*  ------------------------------page__Getintouch - БЛОК с колонками-----------------------------*/
+
+.page__getintouch /* section-ЭЛЕМНТ БЛОКА */ {} 
+
+.getintouch /* page__Getintouch БЛОК*/ {
+    padding: 80px 0px 135px 0px;
+} 
+
+.getintouch__conteiner /* Ограничивающий контейнер */ {} 
+
+._conteiner /*ОБЩИЙ гранич.контейнер*/ {}
+
+/* ===================================================-----------======= */
+.getintouch__header /*  */ {    
+    padding: 0px 0px 80px 0px;
+}
+@media (max-width:992px) { /* уменьшаем ОТСТУПЫ после HEADER */
+    .getintouch__header /*  */ {    
+        padding: 0px 0px 50px 0px;
+    }
+    .getintouch /* page__Getintouch БЛОК*/ {
+        padding: 50px 0px 50px 0px;
+    } 
+}
+@media (max-width:767px) { /* уменьшаем ОТСТУПЫ после HEADER */
+   
+    .getintouch__header /*  */ {    
+        padding: 0px 0px 30px 0px;
+    }
+}
+.header_block /*HEADER_BLOCK */ {}
+
+.header_block__title /* text Get in touch*/ {}
+
+.header_block__subtitle /* text Problems trying to resolve*/ {}
+
+/* ===============================================---------=========== */
+
+/*.getintouch__items /* cards - ОБОЛОЧКА */ { /* сначала пишем ЗДЕСЬ, а при АДАПТИВЕ переносим в МОБАЙЛ-ФЁРСТ  min-width */
+    /*display: flex;
+    align-items: center;*/
+}
+.getintouch__items {
+    margin: 0 -20px; /* ----------УБИРАЕМ ОТСТУПЫ по краям колонок-------- */
+}
+@media (min-width:992px) { /* используем МОБАЙЛ-ФЁРСТ  min-width*/
+    .getintouch__items {
+        display: flex;
+        align-items: center;
+
+        margin: 0; /* -------------УБИРАЕМ ОТСТУПЫ по краям колонок-------- */
+    }  
+}
+
+.getintouch__item /* card 1 */ {
+    flex: 0 1 33.333%;
+}
+
+.item__getintouch /* card_BLOCK */ { /* в БЛОКЕ выстраиваем все по центру */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #fef3f3;
+    padding: 50px 15px;
+}
+
+.item__getintouch > *:not(:last-child) {
+    margin: 0px 0px 15px 0px; /* одинаковые отступы по вертикали во всей колонке! */
+}
+.item__getintouch__icon /*   */ {}
+
+.item__getintouch__emails /* emails БЛОК-ОБОЛОЧКА */ /* в emails тоже выстраиваем все по центру */{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+} 
+.item__getintouch__email {
+    color: inherit; /* наследует цвет */
+
+    font-weight: 600;
+    line-height: 150%;
+    font-size: 16px;
+}
+.item__getintouch__email:hover {
+    text-decoration: underline;
+}
+.item__getintouch__label /* text Get support*/ {
+    font-weight: 600;
+    line-height: 150%;
+    font-size: 16px;
+}
+
+.item__getintouch__button /*button*/ {
+    min-height: 44px;
+    border: 1px solid #0206de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 142%;
+    padding: 5px 20px;
+    font-weight: 600;
+    color: #02500a;
+}
+.item__getintouch__button:hover /*button*/ {
+    background-color: #0206de;
+    cursor: pointer;
+    color: #eaedf6;
+    transition: 1s;
+}
+
+/* ---------------------------card 2------------------------- */
+.item__getintouch-active  { /* card 2 карточка по центру */
+    background-color:  #0117be;
+    color: #f1f1f1;
+
+    padding: 80px 15px; /* сделали карточку выше чем те другие */
+}
+.item__getintouch__button-active { /* card 2 карточка по центру */
+    background-color: #f1f1f1;
+    color: #0117be;
+}
+.item__getintouch__button-active:hover { /* card 2 карточка по центру */
+    background-color: #07760b;
+    color: #f9f9ff;
+    transition: 1s;
+}
+/* ---------------------------card 2------------------------- */
+
+/*---------------------------------------------page__Getintouch - БЛОК с колонками------------------------------------------------------------------------- */
+
+
+
+
+/*---------------------------------------------------section_page__Consulting--------------------------------------------------------------------------- */
+
+.page__contact /*section  ЭЛЕМЕНТ БЛОКА */ {} 
+
+.contact /* БЛОК */ {
+    background-color: #f3f0f0;
+    padding: 42px 0;
+}
+
+.contact__conteiner /* Ограничивающий контейнер */ {} 
+
+._conteiner /*ОБЩИЙ гранич.контейнер*/ {}
+
+
+/*.contact_body /* contact_body */  {  /* сначала пишем ЗДЕСЬ, а при АДАПТИВЕ переносим в МОБАЙЛ-ФЁРСТ  min-width */
+    /*display: flex;
+    justify-content: space-between;
+    align-items: center;*/
+}
+.contackt-content /*  */ {
+    padding: 0px 0px 20px 0px;
+}
+@media (min-width:767px) { /* используем МОБАЙЛ-ФЁРСТ  min-width*/
+   .contact_body /* contact_body */  {    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contackt-content /*  */ {
+        padding: 0px 0px 20px 0px; /* отступы текста до КНОПКИ ВНИЗ */
+    }
+}
+
+
+.contackt__title /* text Consulting Agensy For Your Bussiness*/ {
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    font-size: 24px;
+    line-height: 133%;
+}
+
+.contackt__text /*Lorem ipsum dollars cars */ {
+    color: #6b6a6a;
+    line-height: 142%;
+}
+
+.contackt-button /* button*/ {
+    display: flex;
+    background: #0206de;
+    border-radius: 5px;
+    min-height: 58px; /* минимальная высота кнопке */
+    padding: 5px 40px;
+    color: #eaedf6;
+    font-weight: 600;
+
+    justify-content: center; /* ставим ПО ЦЕНТРУ надпись в кнопке */
+    align-items: center;     /* ставим ПО ЦЕНТРУ надпись в кнопке */
+    text-align: center;     /* ставим ПО ЦЕНТРУ надпись в кнопке */
+}
+
+.contackt-button:hover /* button*/ {
+    background-color: #07760b;
+    color: #fffefe;
+    transition: 1s;
+}
+/*---------------------------------------------------section_page__Consulting--------------------------------------------------------------------------- */
+
+
+
+
+
+/*------------------------------------------------footer----------------------------------------------*/
+
+/*------------------------------------------------------верхняя часть------------------------------------- */
+
+.footer /* footer */ {}
+
+.footer_top /* footer_top */ {
+    background-color: #d70792;
+    padding: 30px 0;
+}
+._conteiner /*ОБЩИЙ гранич.контейнер*/ {}
+
+
+.footer_main /* Ограничивающий контейнер */ {}
+
+.footer_row /* что бы задать отступы безопастности */ {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* ---------- ОТСТУПЫ по краям колонок-------- */
+}
+.footer_column/*footer_colum -КОЛОНКИ- */ {
+    flex: 0 1 16.6667%;
+
+    padding: 20px 15px; /* ----------ОТСТУПЫ по краям колонок-------- */
+    min-height: 280px;
+
+}
+.footer_column:last-child  /*footer_colum - А это ПОСЛЕДНЯ КОЛОНКА- */ {
+    flex: 0 1 33.334%;
+}
+@media (max-width:992px) { /* используем МОБАЙЛ-ФЁРСТ  min-width*/
+    .footer_column {
+        flex: 1 1 25%;
+    } 
+    .footer_column:last-child {
+        flex: 0 1 100%;
+    }
+ }
+ @media (max-width:992px) { /* используем МОБАЙЛ-ФЁРСТ  min-width*/
+    .footer_column:last-child {
+        flex: 0 1 50%;
+    }
+ }
+.footer_label /* ТЕКСТ Company info */ {
+    color: #f3f0f0;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    margin: 0px 0px 20px 0px;
+}
+
+.menu-footer /*  */ {}
+
+.menu_footer__list /*  */ {}
+
+.menu_footer_item:not(:last-child) /*  */ {
+    margin: 0px 0px 10px 0px;
+}
+
+.menu_footer__link /*About Us -ССЫЛКИ- </a> */ {
+    color: #faf8f8;
+    display: inline-block; /* без этого не сработает line-height: */
+    line-height: 171%;
+    letter-spacing: 0.2px;
+}
+.menu_footer__link:hover {
+    text-decoration: underline;
+}
+/* -----------------------------5 колонка------------------------- */
+.footer_conackts /* ЭЛЕМЕНТ БЛОКА  */ {}
+
+.conackts-footer /* БЛОК */ {
+    display: flex;
+    flex-direction: column;
+}
+
+.conackts-footer__item /* ссылка на адрес,карта,телефон,email ЭЛЕМЕНТ БЛОКА */ {
+    padding: 0px 0px 20px 34px; /* сдвинули ВПРАВО весь текст для иконок */
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    color: #eaedf6;
+    line-height: 142%;
+
+}
+.conackts-footer__item:hover {
+    text-decoration: underline;
+}
+.contackt_footer_item:not(:last-child) {
+    margin: 0px 0px 12px 0px;
+}
+
+.conackts-footer__item_map /* ссылка на карта БЛОК */ {
+    background: url(img_foooter/icon\ 2-.png) 0 0 no-repeat;
+}
+.conackts-footer__item_phone  /* ссылка на телефон БЛОК */ {
+    background: url(img_foooter/icon\ 3-.png) 0 0 no-repeat;
+}
+
+.conackts-footer__item_email /* ссылка на email БЛОК */ {
+    background: url(img_foooter/icon\ 4-.png) 0 0 no-repeat;
+}
+
+/* -----------------------------5 колонка------------------------- */
+
+/*------------------------------------------------------нижняя часть------------------------------------- */
+
+.footer_bottom /* footer_bottom */ {
+    padding: 25px 0;
+
+}
+
+
+.footer_conteiner /* СНАЧАЛА пишем здесь, а потом переносим в МОБАЙЛ-ФЁРСТ  min-width */ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+@media (max-width:767px) { /* выстроили в РЯД при разрешении 767 px*/
+    .footer_conteiner /* */  {    
+         flex-direction: column;
+     }
+     .footer_copy {
+        padding: 5px 0;
+    }
+    
+ }
+
+._conteiner /*  */ {}
+
+.footer_copy /* TEXT Copirite & foto, video 2020*/ {
+    color: #a1a0a0;
+    line-height: 171%;
+    padding: 5px 0;
+    text-align: center;
+}
+
+
+.footer_social /*  */ {} 
+
+.social /*footer_social */ {
+    display: flex;
+    align-items: center;
+
+}
+.social_item:not(:last-child) /* ИКОНКИ в колонке </a>*/  {
+    margin: 0px 20px 0px 0px; /* растояние между иконками */
+}
+                    
+
+
+/*--------------- ------------------------------------------------footer----------------------------------------------------*/

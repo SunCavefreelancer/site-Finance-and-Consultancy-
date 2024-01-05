@@ -1,0 +1,585 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<!-- Заголовок страницы в браузере -->
+		<title>Finance</title>
+        <!---Подключаем css-->
+		<link rel="stylesheet" href="css/style.css" />
+
+        <link rel="stylesheet" href="css/animate.css"> <!-- подключили для анимации с сайта https://wowjs.uk/docs.html -->
+
+		<!-- Кодировка страницы -->
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+    <!-- Отображаемое тело страницы -->
+    <body>
+        <!-- Оболочка для демонстрации -->
+        <div class="wrapper"> <!-- wrapper -->
+            <!-- Контент -->
+            <header class="header">                                                          <!-- -------header------------- -->
+                <div class="conteiner"> <!-- который ограничит ШИРИНУ КОНТЕНТНОЙ ЧАСТИ -->   <!-- -------conteiner------------- -->
+                    <div class="header__body"> <!-- Флекс-контейнер оболочка для logo-->
+                        <a href="#" class="header__logo"> <!-- внутри поместим ЛОГОТИП --> 
+                            <img src="img/Welcome-Logo.png" alt="logo">
+                        </a>  
+
+                            <div class="header__burger"> <!-- это будет бургер меню ГОРИЗОНТАЛЬНЫЕ ПОЛОСКИ -->
+                                <span></span> <!-- здесь будем рисовать СРЕДНЮЮ ПОЛОСКУ МЕНЮ -->
+                            </div>
+
+                                <nav class="header__menu">  <!-- создаем наше меню-ссылки -->   <!-- ------------menu_header-------------- -->
+                                     <ul class="header__list"> <!-- оболочка для пунктов меню -->
+                                        <li class="menu_header_link"><a href="index.html" class="menu_header_link1 link_vip">Home</a></li>
+                                        <li class="menu_header_link"><a href="#practice" class="menu_header_link1">Advice</a></li>
+                                        <li class="menu_header_link"><a href="#getintouch" class="menu_header_link1">Get in touch</a></li>
+                                        <li class="menu_header_link"><a href="#footer" class="menu_header_link1">Contacts</a></li>
+                                     </ul>
+                                </nav>                                            <!-- ------------menu_header-------------- -->
+                    </div>  
+                </div>                                                         <!-- -------conteiner------------- -->
+            </header>                                                             <!-- -------header------------- -->
+
+
+<!-- ------------------------------------------------header---------------------------------------------------------------------------- -->
+
+
+<!-- ------------------------------------------------main---------------------------- -->
+
+<!-- --------------------------------------section_1----------------------------------------------------- -->
+
+    <main class="page"> <!--Родительский эелемент-->
+
+        <div class="page__main-block main-block"> <!-- page__main-block main-block -->
+            <div class="main-block__conteiner _conteiner"> <!-- main-block__conteiner __conteine -->
+                <div class="main-block__body"> <!-- main-block__body -->
+
+                    <h1 class="main-block__title">Finance and Consultancy Solution</h1>
+                     <div class="main-block__text">We now how large objekt will act, but things on a small scale.</div>
+                         <div class="main-block__buttons"> <!-- кнопки -->
+                             <a href="" class="main-block__button main-block__button_ORANGE">Get Quote now</a>
+                             <a href="" class="main-block__button main-block__button_border">Learn More</a>
+                         </div> <!-- кнопки -->
+                </div> <!-- main-block__body --> 
+            </div>  <!-- main-block__conteiner __conteine -->     
+                <div class="main-block__image _ibg"> <!-- main-block__image -->
+                   <img src="img/foto6.jpg" alt="cover">
+                </div>   <!-- main-block__image -->                                
+        </div>  <!-- page__main-block main-block -->
+
+
+<!-- -------------------------------servises - ОБЩИЙ БЛОК--------------------------------- -->
+        <section class="page__servises servises"> <!-- servises --> <!-- ОБЩИЙ БЛОК -->
+            <div class="servises__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+                <div class="servises__body"> <!-- ФЛЕКС структура -->
+                    <div class="servises__column"> <!-- column -->
+                        <div class="servises__item item-servise">
+                            <div class="item-servise__icon wow bounceIn"><img src="servises/icon_01.png" alt=""></div>
+                            <h3 class="item-servise__title">Enviromental Consulting</h3>
+                            <div class="item-servise__text">We focus on ergonomiks and meeting you where you work.</div>
+                        </div>
+                    </div> <!-- column -->
+
+                    <div class="servises__column"> <!-- column -->
+                        <div class="servises__item item-servise">
+                            <div class="item-servise__icon  wow bounceIn"><img src="servises/icon_02.png" alt=""></div>
+                            <h3 class="item-servise__title">Finance and Consolutancy</h3>
+                            <div class="item-servise__text">We focus on ergonomiks and meeting you where you work.</div>
+                        </div>
+                    </div> <!-- column -->
+
+                    <div class="servises__column"> <!-- column -->
+                        <div class="servises__item item-servise item-servise_green">
+                            <div class="item-servise__icon  wow bounceIn"><img src="servises/icon_03.png" alt=""></div>
+                            <h3 class="item-servise__title">Financial Servises Consulting</h3>
+                            <div class="item-servise__text">We focus on ergonomiks and meeting you where you work.</div>
+                        </div>
+                    </div> <!-- column -->
+                </div> <!-- ФЛЕКС структура -->
+            </div>
+        </section> <!-- servises -->
+<!-- ------------------------------servises - ОБЩИЙ БЛОК--------------------------------- -->
+
+
+<!-- ------------------------------page__advantages - БЛОК ДОСТИЖЕНИЯ--------------------------------- -->  
+
+<section class="page__advantages advantages">
+    <div class="advantages__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="advantages__header header_block"> <!-- advantages__header header_block -->
+            <h2 class="header_block__title">Desingning Better Experiens</h2>
+            <div class="header_block__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla doloritaque, dolor optio <br> assumenda distinctio consequuntur modi eos aliquam voluptate esse.</div>
+        </div> <!-- advantages__header header_block -->
+
+        <div class="advantages__body"> <!-- advantages__body -->
+          <div class="advantages__column"> <!-- column -->
+            <div class="advantages__item"> <!-- advantages__item -->
+               <div class="advantages__icon  wow bounceIn"><img src="icon/icon_04.png" alt=""></div>
+                 <div class="advantages__value">972 +</div>
+                  <div class="advantages__text">Consumer Products</div>
+            </div>                        <!-- advantages__item -->
+          </div> <!-- column -->
+
+          <div class="advantages__column"> <!-- column -->
+            <div class="advantages__item"> <!-- advantages__item -->
+               <div class="advantages__icon  wow bounceIn"><img src="icon/icon_05.png" alt=""></div>
+                 <div class="advantages__value">181 +</div>
+                  <div class="advantages__text">Finsnsial Servises</div>
+            </div> <!-- advantages__item -->
+          </div> <!-- column -->
+
+          <div class="advantages__column"> <!-- column -->
+            <div class="advantages__item"> <!-- advantages__item -->
+               <div class="advantages__icon  wow bounceIn"><img src="icon/icon_06.png" alt=""></div>
+                 <div class="advantages__value">98 %</div>
+                  <div class="advantages__text">Environmental</div>
+            </div>                       <!-- advantages__item -->
+          </div> <!-- column -->
+
+          <div class="advantages__column"> <!-- column -->
+            <div class="advantages__item"> <!-- advantages__item -->
+               <div class="advantages__icon  wow bounceIn"><img src="icon/icon_07.png" alt=""></div>
+                 <div class="advantages__value">746 +</div>
+                  <div class="advantages__text">Bussines & Finance</div>
+            </div>                       <!-- advantages__item -->
+          </div> <!-- column -->
+
+        </div> <!-- advantages__body -->
+    </div>  <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+</section>
+<!-- ------------------------------page__advantages - БЛОК ДОСТИЖЕНИЯ--------------------------------- -->  
+
+
+
+<!-- ------------------------------page__practice - БЛОК ПРАКТИКА--------------------------------- -->  
+<section id="practice" class="page__practice practice">
+    <div class="practice__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="practice__header header_block"> <!-- advantages__header header_block -->
+            <h2 class="header_block__title">Practice Advice</h2>
+            <div class="header_block__subtitle">Problems trying to resolve theconflict beetween <br> the two madgor realms of Classical physics:adipisicing elit.</div>
+        </div> <!-- advantages__header header_block -->   
+        
+        <div class="practice__body"> <!-- practice__body -->
+            <div class="practice__column"> <!-- practice__column -->
+                <div class="practice__item item-practice">  <!-- оболочка для БЛОКА -->
+                    <div class="item-practice__content"> <!-- оболочка для текста -->
+                        <a href="" class="item-practice__link"> <!-- заглавие делаем ССЫЛКОЙ -->
+                            <h4 class="item-practice__title">A single a sourse of truth</h4>
+                        </a>  <!-- заглавие делаем ССЫЛКОЙ -->
+                        <div class="item-practice__text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit, dolor sit amet, dolor sit amet.
+                        </div>
+                    </div> <!-- оболочка для текста -->
+                    <a href="" class="item-practice__image _ibg"> <!-- фото делаем ССЫЛКОЙ -->
+                        <img src="img/foto01.jpg" alt="">
+                    </a>   <!-- фото делаем ССЫЛКОЙ -->
+                </div>  <!-- оболочка для БЛОКА -->
+            </div> <!-- practice__column -->
+
+            <div class="practice__column"> <!-- practice__column -->
+                <div class="practice__item item-practice">  <!-- оболочка для БЛОКА -->
+                    <div class="item-practice__content"> <!-- оболочка для текста -->
+                        <a href="" class="item-practice__link"> <!-- заглавие делаем ССЫЛКОЙ -->
+                            <h4 class="item-practice__title">Work better toogether</h4>
+                        </a>  <!-- заглавие делаем ССЫЛКОЙ -->
+                        <div class="item-practice__text">
+                            Lorem ipsum, dolor elit, dolor sit amet, dolor sit amet.
+                        </div>
+                    </div> <!-- оболочка для текста -->
+                    <a href="" class="item-practice__image _ibg"> <!-- фото делаем ССЫЛКОЙ -->
+                        <img src="img/foto02.jpg" alt="">
+                    </a>   <!-- фото делаем ССЫЛКОЙ -->
+                </div>  <!-- оболочка для БЛОКА -->
+            </div> <!-- practice__column -->
+
+            <div class="practice__column"> <!-- practice__column -->
+                <div class="practice__item item-practice">  <!-- оболочка для БЛОКА -->
+                    <div class="item-practice__content"> <!-- оболочка для текста -->
+                        <a href="" class="item-practice__link"> <!-- заглавие делаем ССЫЛКОЙ -->
+                            <h4 class="item-practice__title">Fastes way to take aorganize</h4>
+                        </a>  <!-- заглавие делаем ССЫЛКОЙ -->
+                        <div class="item-practice__text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit, dolor amet consectetur adipisicing sit amet, dolor sit amet.
+                        </div>
+                    </div> <!-- оболочка для текста -->
+                    <a href="" class="item-practice__image _ibg"> <!-- фото делаем ССЫЛКОЙ -->
+                        <img src="img/foto03.jpg" alt="">
+                    </a>   <!-- фото делаем ССЫЛКОЙ -->
+                </div>  <!-- оболочка для БЛОКА -->
+            </div> <!-- practice__column -->
+
+            <div class="practice__column"> <!-- practice__column -->
+                <div class="practice__item item-practice">  <!-- оболочка для БЛОКА -->
+                    <div class="item-practice__content"> <!-- оболочка для текста -->
+                        <a href="" class="item-practice__link"> <!-- заглавие делаем ССЫЛКОЙ -->
+                            <h4 class="item-practice__title">Fastes way to take action</h4>
+                        </a>  <!-- заглавие делаем ССЫЛКОЙ -->
+                        <div class="item-practice__text">
+                            Lorem ipsum, dolor sit amet, dolor sit amet, dolor sit amet.
+                        </div>
+                    </div> <!-- оболочка для текста -->
+                    <a href="" class="item-practice__image _ibg"> <!-- фото делаем ССЫЛКОЙ -->
+                        <img src="img/foto03.jpg" alt="">
+                    </a>   <!-- фото делаем ССЫЛКОЙ -->
+                </div>  <!-- оболочка для БЛОКА -->
+            </div> <!-- practice__column -->
+        </div> <!-- practice__body -->
+    </div> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+</section>
+
+<!-- ------------------------------page__practice - БЛОК ПРАКТИКА--------------------------------- -->  
+
+
+<!-- ------------------------------page__Subscribe - БЛОК C ПОЛОСКОЙ--------------------------------- -->  
+<section class="page__subscribe subscribe">
+    <div class="subscribe__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="subscribe__body"> <!-- subscribe__body ОБОЛОЧКА-->
+            <h4 class="subscribe__title">Subscribe for Latest Newslarter</h4>
+            <form action="#" class="subscribe__form"> <!-- ФОРМА -->
+                <input autocomplete="off" type="email" required name="form[]" placeholder="You mail" class="subscribe__input"> <!-- КНОПКА --> <!-- required - поле обязапьельно для заполнения -->
+                <button type="submit" class="subscribe__button">Subscribe</button>            <!-- ПОЛЕ ДЛЯ ВВОДА -->
+            </form>  <!-- ФОРМА -->
+        </div> <!-- subscribe__body -->
+    </div>    <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+</section>
+
+<!-- ------------------------------page__Subscribe - БЛОК C ПОЛОСКОЙ--------------------------------- -->  
+
+
+
+
+<!-- ------------------------------page__Whoweare - БЛОК C ВИДЕО--------------------------------- -->  
+<section class="page__whoweare whoweare"> <!-- Whoweare -->
+    <div class="whoweare__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="whoweare__header header_block"> <!-- whoweare__header HEADER_BLOCK -->
+            <h2 class="header_block__title">Who we are</h2>
+               <div class="header_block__subtitle">Problems trying to resolve theconflict beetween <br> the two madgor realms of Classical physics:adipisicing elit.</div>
+        </div> <!-- whoweare__header HEADER_BLOCK -->  
+        
+            <div class="whoweare__body"> <!-- whoweare__body --> <!-- оболочка для БЛОКА -->
+                <div class="whoweare__video"> <!-- вставили ВИДЕО --> <!-- видео с yootob ПОДЕЛИТЬСЯ, <встроить> и копируем ссылку -->
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/KCKSF_sQpCc?si=FBhgsZ9YAB5bFXHH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                </div> <!-- вставили ВИДЕО -->
+
+            <div class="whoweare__content"> <!-- whoweare__content -->
+                <h2 class="whoweare__title">Most trusted in our field</h2>
+                <div class="whoweare__text">Most calendars are desainger for teams. Slate is desinger for frilansers for team. Things on a very small scalle. Things on a very small scalle. </div>
+                
+                <div class="whoweare__items"><!-- whoweare__items --> <!-- КОРОБОЧКА (cards) -->
+                    
+                    <div class="whoweare__item item-whoweare"><!-- whoweare__item  item-whoweare --> <!-- оболочка для БЛОКА (card 1)-->
+                        <div class=" item-whoweare__icon"><img src="icon/arrow1.png" alt=""></div>
+                            <div class="item-whoweare__body"> <!-- item-whoweare__body -->
+                               <div class=" item-whoweare__title">The quick fox jamps over the lazy dog</div>
+                                  <div class=" item-whoweare__text">Things on a very small scalle, Things on a very small scalle, Things on a very small scalle.</div>
+                            </div><!-- item-whoweare__body -->
+                    </div><!-- whoweare__item  item-whoweare --> <!-- оболочка для БЛОКА  (card 1)-->
+
+
+                    <div class="whoweare__item item-whoweare"><!-- whoweare__item  item-whoweare --> <!-- оболочка для БЛОКА (card 2)-->
+                        <div class=" item-whoweare__icon"><img src="icon/arrow2.png" alt=""></div>
+                            <div class="item-whoweare__body"> <!-- item-whoweare__body -->
+                               <div class=" item-whoweare__title">The quick fox jamps over the lazy dog</div>
+                                  <div class=" item-whoweare__text">Things quick small scalle, Things on a very small scalle, Things on a very small scalle.</div>
+                            </div><!-- item-whoweare__body -->
+                    </div><!-- whoweare__item  item-whoweare --> <!-- оболочка для БЛОКА  (card 2)-->
+
+                </div><!-- whoweare__items --> <!-- КОРОБОЧКА (cards) -->    
+
+            </div> <!-- whoweare__content -->
+
+            </div> <!-- whoweare__body --> <!-- оболочка для БЛОКА -->
+
+    </div> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+</section>  <!-- Whoweare -->
+
+<!-- ------------------------------page__Subscribe - БЛОК C ВИДЕО--------------------------------- -->  
+
+
+
+
+
+<!-- ------------------------------page__Clients - БЛОК КЛИЕНТЫ--------------------------------- -->  
+
+<div class="page__Clients Clients"> <!-- page__Clients -->
+    <div class="Clients__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="Clients__items"> <!-- Clients__items ОБОЛОЧКА img -->
+            <div class="Clients_item"> <!-- item 1 -->
+                <img src="icon_client/Image1.png" alt="">
+            </div>  <!-- item 1 -->
+
+
+            <div class="Clients_item"> <!-- item 2 -->
+                <img src="icon_client/Image6.png" alt="">
+            </div>  <!-- item 2 -->
+
+
+            <div class="Clients_item"> <!-- item 3 -->
+                <img src="icon_client/Image2.png" alt="">
+            </div>  <!-- item 3 -->
+
+
+            <div class="Clients_item"> <!-- item 4 -->
+                <img src="icon_client/Image3.png" alt="">
+            </div>  <!-- item 4 -->
+
+
+            <div class="Clients_item"> <!-- item 5 -->
+                <img src="icon_client/Image4.png" alt="">
+            </div>  <!-- item 5 -->
+
+
+            <div class="Clients_item"> <!-- item 6 -->
+                <img src="icon_client/Image5.png" alt="">
+            </div>  <!-- item 61 -->
+            
+        </div> <!-- Clients__items ОБОЛОЧКА img -->
+    </div><!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+    </div>  <!-- page__Clients -->
+
+
+<!-- ------------------------------page__Clients - БЛОК КЛИЕНТЫ--------------------------------- -->  
+
+
+
+
+<!-- ---------------------------------------------------section_page__Getintouch--------------------------------------------------------------------------- -->
+<section id="getintouch" class="page__getintouch getintouch"> <!-- page__Getintouch -->
+    <div class="getintouch__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="getintouch__header header_block"> <!-- whoweare__header HEADER_BLOCK -->
+            <h2 class="header_block__title">Get in touch</h2>
+               <div class="header_block__subtitle">Problems trying to resolve theconflict beetween <br> the two madgor realms of Classical physics:adipisicing elit.</div>
+        </div> <!-- whoweare__header HEADER_BLOCK -->  
+
+        <div class="getintouch__items"> <!-- getintouch__items -->
+
+            <div class="getintouch__item item__getintouch"> <!-- getintouch__item 1  item__getintouch  -->
+                <div class="item__getintouch__icon">
+                    <img src="card_icon/2.png" alt="">
+                </div>
+                    <div class="item__getintouch__emails">
+                        <a href="mailto:georgizz.you@gfhfda.com" class="item__getintouch__email">mailto:georgizz.you@gfhfda.com</a> <!-- mailto: будет сразу переходить на почту -->
+                        <a href="mailto:georgizz.you@fax.com" class="item__getintouch__email">mailto:georgizz.you@fax.com</a> <!-- mailto: будет сразу переходить на почту -->
+                    </div>
+                        <div class="item__getintouch__label">Get support</div>
+                             <div class="item__getintouch__button">Submit reset</div>
+            </div>   <!-- getintouch__item 1  item__getintouch  -->
+            
+            
+            <div class="getintouch__item item__getintouch item__getintouch-active"> <!-- getintouch__item 2  item__getintouch  -->
+                <div class="item__getintouch__icon">
+                    <img src="card_icon/навигация.png" alt="">
+                </div>
+                    <div class="item__getintouch__emails">
+                        <a href="mailto:georgizz.you@gfhfda.com" class="item__getintouch__email">mailto:georgizz.you@gfhfda.com</a> <!-- mailto: будет сразу переходить на почту -->
+                        <a href="mailto:georgizz.you@fax.com" class="item__getintouch__email">mailto:georgizz.you@fax.com</a> <!-- mailto: будет сразу переходить на почту -->
+                    </div>
+                        <div class="item__getintouch__label">Get support</div>
+                             <div class="item__getintouch__button item__getintouch__button-active">Submit reset</div>
+            </div>   <!-- getintouch__item 1  item__getintouch  -->
+
+
+            <div class="getintouch__item item__getintouch"> <!-- getintouch__item 3  item__getintouch  -->
+                <div class="item__getintouch__icon">
+                    <img src="card_icon/1.png" alt="">
+                </div>
+                    <div class="item__getintouch__emails">
+                        <a href="mailto:georgizz.you@gfhfda.com" class="item__getintouch__email">mailto:georgizz.you@gfhfda.com</a> <!-- mailto: будет сразу переходить на почту -->
+                        <a href="mailto:georgizz.you@fax.com" class="item__getintouch__email">mailto:georgizz.you@fax.com</a> <!-- mailto: будет сразу переходить на почту -->
+                    </div>
+                        <div class="item__getintouch__label">Get support</div>
+                             <div class="item__getintouch__button">Submit reset</div>
+            </div>   <!-- getintouch__item 1  item__getintouch  -->
+    
+        </div>  <!-- getintouch__items -->
+
+
+    </div>    <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+</section> <!-- page__Getintouch -->
+
+<!-- ---------------------------------------------------section_page__Getintouch--------------------------------------------------------------------------- -->
+
+
+
+
+
+<!-- ---------------------------------------------------section_page__contact--------------------------------------------------------------------------- -->
+<section class="page__contact contact"> <!-- page__Consulting -->
+    <div class="contact__conteiner _conteiner"> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+        <div class="contact_body"> <!-- body-block block_body -->
+
+            <div class="contackt-content"> <!-- contackt-block -->
+                <h5 class="contackt__title">Consulting Agensy For Your Bussiness</h5>
+                    <div class="contackt__text">Lorem ipsum dollars cars tiorner films ora.</div>
+            </div> <!-- contackt-block -->
+
+                <a href="" class="contackt-button">Contackt Us</a> <!-- button -->
+
+        </div> <!-- body-block block_body --> 
+
+    </div> <!-- conteiner__servises-Ограничивающий контейнер------ _conteiner-ОБЩИЙ гранич.контейнер -->
+</section> <!-- page__Getintouch -->
+
+<!-- ---------------------------------------------------section_page__contact--------------------------------------------------------------------------- -->
+
+    </main> 
+<!-- ------------------------------------------------main---------------------------- -->
+
+		</div> <!-- wrapper -->
+
+
+<!-- ------------------------------------------------footer---------------------------- -->
+<footer id="footer" class="footer">
+    <div class="footer_top"> <!-- footer_top -->
+        <div class="footer_main _conteiner"> <!-- footer_main _conteiner --> <!-- ОБЩИЙ ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР-->
+          <div class="footer_row"> <!-- footer_row --> <!-- что бы задать отступы безопастности -->
+
+            <div class="footer_column"> <!-- footer_column 1-->
+                <div class="footer_label">Company info</div>
+                <nav class="footer_menu menu-footer">
+                    <ul class="menu_footer__list">
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">About Us</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Adipisci</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Labore</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Pariatur</a>
+
+                        </li>
+                    </ul>
+                </nav>
+            </div> <!-- footer_column -->
+
+
+            <div class="footer_column"> <!-- footer_column 2-->
+                <div class="footer_label">Legal</div>
+                <nav class="footer_menu menu-footer">
+                    <ul class="menu_footer__list">
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">About Us</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Adipisci</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Labore</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Pariatur</a>
+                        </li>
+
+                        </li>
+                    </ul>
+                </nav>
+            </div> <!-- footer_column -->
+
+
+            <div class="footer_column"> <!-- footer_column 3-->
+                <div class="footer_label">Factures info</div>
+                <nav class="footer_menu menu-footer">
+                    <ul class="menu_footer__list">
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">About Us</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Live chat</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Wotch & Demo</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Adipisci</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> <!-- footer_column -->
+
+
+            <div class="footer_column"> <!-- footer_column 4-->
+                <div class="footer_label">Resours</div>
+                <nav class="footer_menu menu-footer">
+                    <ul class="menu_footer__list">
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">About Us</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Adipisci</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Padipisicing</a>
+                        </li>
+                        <li class="menu_footer_item">
+                            <a href="" class="menu_footer__link">Pariatur</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> <!-- footer_column -->
+
+
+            <div class="footer_column"> <!-- footer_column 5-->
+                <div class="footer_label">Get in touch</div>
+
+                <div class="footer_conackts conackts-footer"> <!-- footer_conackts conackts-footer -->        
+                    <a href="" class="conackts-footer__item conackts-footer__item_map">st. B. Khmelnitsky, 19-21A, 7th floor,</a></li>
+                    <a href="tel:250497903730" class="conackts-footer__item conackts-footer__item_phone">Phone: +25 (049) 790 37 30</a></li> <!-- будет ссылка на телефон переходить -->
+                    <a href="mailto:zebra.wiht@lkju.com" class="conackts-footer__item conackts-footer__item_email">Email: zebra.wiht@lkju.com</a></li> <!-- будет ссылка на телефон переходить -->
+                </div> <!-- footer_conackts conackts-footer -->
+
+            </div> <!-- footer_column -->
+
+         </div> <!-- footer_row -->
+        </div> <!-- footer_conteiner _conteiner --> <!-- ОБЩИЙ ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР-->
+    </div> <!-- footer_top -->
+
+
+    <div class="footer_bottom"> <!-- footer_bottom -->
+        <div class="footer_conteiner _conteiner"> <!-- ОБЩИЙ ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР-->
+            
+            <div class="footer_copy">Made Witht Love,By Resrrved. Copirite & foto, video 2020</div>
+            
+            <div class="footer_social social"><!-- footer_social -->
+                <a href="" class="social_item">
+                    <img src="card_icon/письмо 2.png" alt="">
+                </a>
+                <a href="" class="social_item">
+                    <img src="card_icon/звезда_мал.png" alt="">
+                </a>
+                <a href="" class="social_item">
+                    <img src="card_icon/social-6.png" alt="">
+                </a>
+                <a href="" class="social_item">
+                    <img src="card_icon/social-5.png" alt="">
+                </a>
+            </div><!-- footer_social -->
+
+        </div><!-- ОБЩИЙ ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР-->
+    </div> <!-- footer_bottom -->
+
+
+</footer>
+
+
+<!-- ------------------------------------------------footer---------------------------- -->
+
+
+        <!-- Подключаем jQuery` -->
+        <script src="https://code.jQuery.com/jQuery-3.4.1.slim.min.js" ></script>
+
+        <!-- Подключаем файл jS скриптов -->
+        <script src="js/script.js" ></script>
+
+        <script src="js/wow.min.js"></script> <!-- ------------подключили для анимации с сайта https://wowjs.uk/docs.html----------------- -->
+                  <script>                 
+                  new WOW().init(); 
+                 </script>               <!-- ---------подключили для анимации с сайта https://wowjs.uk/docs.html----------------------------------- -->
+   
+
+    </body>
+    </html>
